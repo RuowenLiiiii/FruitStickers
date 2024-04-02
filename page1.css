@@ -1,0 +1,372 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000807;
+    font-family: "Ubuntu Mono", monospace;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 13px;
+    }
+
+  
+  .container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+    overflow: hidden;
+  }
+  
+  .left-side, .right-side {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .left-side {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; /* 居中 */
+    width: 50%;
+    height: 100vh;
+    overflow: hidden; 
+    position: relative;
+    background-color: #fbf5f3;
+    width: 50%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 50px; 
+
+    
+}
+
+.left-side-inner {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto; /* 滚动 */
+  padding-top: 10px;
+  margin-bottom: 10px; 
+}
+
+  .right-side {
+    position: relative;
+    background-color: #d7cfb8; 
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+  }
+
+
+
+
+
+
+
+
+  .sticker-grid {
+    position: absolute; 
+    /* top: 20%; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    gap: 20px;
+    left:20px;
+    width: 100%; 
+    z-index: 2; /* 最上面 */
+    /* justify-content: center; */
+    align-items: center;
+    
+}
+
+.sticker-grid img {
+    width: calc(25% - 30px); 
+    height: auto; 
+    object-fit: cover;
+}
+
+
+
+
+  .filter-dropdown {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .filter-content {
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    background-color: #c4da63;
+    min-width: 160px;
+    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+    z-index: 100;
+    border-radius: 15px;
+  }
+  
+  .filter-content .filter-item {
+    cursor: pointer;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .left-top-corner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    z-index: 5;
+}
+
+.selected-filters {
+    position: absolute;
+    top: -13px;
+    left: 10%; 
+    padding: 20px;
+    display: flex;
+    align-items: center; 
+    flex-wrap: wrap; 
+    z-index: 10;
+}
+    
+#selected-filters-list {
+  display: flex; 
+  list-style-type: none;
+  padding: 0;
+  margin-left: 10px; 
+  
+}
+
+#selected-filters-list span {
+  margin-right: 5px;
+}
+
+#selected-filters-list li {
+  margin-right: 10px;
+}
+
+.filter-content .sub-filter div:hover, .filter-content .sub-filter div.selected {
+    background-color: #f0f0f0; 
+    color: #000;
+}
+  
+.toggle-sub-filter {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.sub-filter div {
+  cursor: pointer;
+  padding-left: 20px;
+}
+
+
+
+
+
+
+
+  .apple-image {
+    width: 70%;
+    height: auto;
+  }
+
+
+
+
+
+  #clear-stickers {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    margin: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #c4da63;
+    color: black;
+    cursor: pointer;
+    z-index: 1000; 
+    
+    font-family:"Ubuntu Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 13px;
+    }
+
+
+    #all-stickers-btn {
+      position: absolute; /* 使用绝对定位 */
+      top: 13px; /* 顶部对齐 */
+      right: 15px; /* 右侧对齐 */
+      margin: 10px; /* 添加一些外边距 */
+      padding: 5px 10px; /* 与Clear Stickers按钮保持一致的内边距 */
+      border: none;
+      border-radius: 5px;
+      background-color: #c4da63; /* 与Clear Stickers按钮相同的背景色 */
+      color: black;
+      cursor: pointer;
+
+      font-family:"Ubuntu Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 13px;
+      /* 复用#clear-stickers的样式 */
+  }
+  
+  #all-stickers-btn:hover {
+    background-color: #9cae50;
+}
+
+#all-stickers {
+  position: absolute; /* 使用绝对定位 */
+  top: 13px; /* 顶部对齐 */
+  left: 15px; /* 右侧对齐 */
+  margin: 10px; /* 添加一些外边距 */
+  padding: 5px 10px; /* 与Clear Stickers按钮保持一致的内边距 */
+  border: none;
+  border-radius: 5px;
+  background-color: #c4da63; /* 与Clear Stickers按钮相同的背景色 */
+  color: black;
+  cursor: pointer;
+
+  font-family:"Ubuntu Mono", monospace;
+font-weight: 400;
+font-style: normal;
+font-size: 13px;
+  /* 复用#clear-stickers的样式 */
+}
+
+#all-stickers:hover {
+background-color: #9cae50;
+}
+
+  #clear-stickers {
+      /* 保持现有样式 */
+      margin: 10px; /* 确保两个按钮之间有足够的空间 */
+  }
+
+
+#clear-stickers:hover {
+    background-color: #9cae50;
+}
+
+
+
+.right-side {
+  position: relative; /* 确保子元素的定位基于此容器 */
+  /* 保持其他样式不变 */
+}
+
+.color-circles {
+  position: absolute; /* 相对于.right-side定位 */
+  top: 0; /* 从顶部开始 */
+  right: 0; /* 对齐到右侧 */
+  display: flex;
+  flex-direction: column; /* 竖直排列 */
+  align-items: flex-end; /* 靠右对齐 */
+  padding: 10px;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin: 5px 0; /* 仅在垂直方向上添加外边距 */
+  cursor: pointer;
+}
+
+
+
+@media (max-width: 750px) {
+
+  .container {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+  }
+
+  .left-side, .right-side {
+    width: 100%;
+  }
+
+  .left-side {
+    order: 2;
+  }
+
+  .right-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* 确保.flex-container正确处理子元素 */
+    order: 3;
+  }
+
+  .sticker-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* 确保内容居中 */
+    gap: 10px; /* 维持10px的间隙 */
+    padding-right: 30px; /* 增加右侧内边距 */
+    padding-left: 0; /* 减少左侧内边距 */
+    box-sizing: border-box;
+    
+  }
+
+  .sticker-grid img {
+    margin: 0px;
+    width: calc(20% - 10px); /* 计算每个图片所占的宽度，考虑间隙 */
+    height: auto;
+    box-sizing: border-box;
+  }
+  
+  #clear-stickers {
+    position: fixed; /* 固定位置相对于视窗 */
+    bottom: 20px; /* 距离底部10px */
+    left: 75%; /* 初始左侧距离设置为50%屏幕宽度 */
+    margin: 0; /* 重置任何默认外边距 */
+    width: 120px;
+  }
+
+  .filter-and-selected-container {
+    display: flex;
+    flex-direction: column; /* 使"Filter"和"Selected Filters"垂直排列 */
+    align-items: center; /* 居中对齐 */
+    width: 100%; /* 占满整个容器宽度 */
+  }
+
+  .selected-filters {
+    order: 1; /* 确保"Selected Filters"显示在"Filter"按钮之上 */
+    width: 100%; /* 宽度占满容器 */
+    text-align: center; /* 文本居中 */
+    margin-bottom: 10px; /* 与下方内容保持间距 */
+    top:-13px;
+  }
+
+  .filter-dropdown {
+    order: 2;
+  }
+
+  .filter-content {
+    display: none; /* 默认隐藏，点击"Filter"按钮时显示 */
+    position: absolute; /* 修改为absolute，相对于其父容器定位 */
+    top: 100%; /* 定位到"Filter"按钮的下方 */
+    left: 50%; /* 居中 */
+    transform: translateX(-10%);
+    width: 80%; /* 或根据实际需要调整 */
+    max-height: 300px; /* 或根据实际需要调整 */
+    overflow-y: auto;
+  }
+
+}
+

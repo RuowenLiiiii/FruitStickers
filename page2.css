@@ -1,0 +1,144 @@
+html, body {
+    font-family: "Ubuntu Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 13px;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    
+    
+}
+
+
+.container {
+    margin:20px;
+    display: flex;
+    flex-direction: column; /* 确保内容是垂直方向的 */
+    align-items: center; /* 确保内容从顶部开始，不居中 */
+    justify-content: flex-start;
+    margin: auto;
+    height: 100vh; /* 或者使用固定高度，例如 600px，视视觉需求而定 */
+    overflow-y: auto; /* 允许垂直滚动 */
+    border-radius: 40px; /* 圆角效果 */
+    background-color: #fbf5f3;
+    box-sizing: border-box; /* 确保padding不影响容器的最终尺寸 */
+    padding-left: 20px; /* 左侧内边距 */
+    padding-right: 20px; /* 右侧内边距 */
+}
+
+.inner-container {
+    margin: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    width: 100%; /* 确保它填满外部容器 */
+}
+
+
+.sticker {
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: calc((100% / 6) - 12px); /* 保持一排六个的布局 */
+    height: 130px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.sticker img {
+    width: 100%;
+    height: 100%;
+    display: block; /* Initially show the image */
+    object-fit: contain; /* Keep the sticker's aspect ratio */
+}
+
+#stickerContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 20px;
+}
+
+
+.sticker img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    
+    transition: opacity 0.5s ease;
+}
+
+.sticker .sticker-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fbf5f3;
+    color: #000; /* 文本颜色 */
+    opacity: 0; /* 初始不可见 */
+    visibility: hidden; /* 初始隐藏 */
+    transition: opacity 0.5s ease, visibility 0s 0.5s; /* 过渡效果 */
+}
+
+.sticker.show-info .sticker-info {
+    opacity: 1; /* Make it visible */
+    visibility: visible; /* Make it interactable */
+    transition: opacity 0.5s ease;
+}
+
+
+.sticker.show-info img {
+    opacity: 0; /* Make the image transparent */
+    visibility: hidden; /* Hide the image */
+    transition: opacity 0.5s ease, visibility 0s 0.5s;
+}
+
+.sticker-info {
+    color: #27251e;
+}
+
+.back-button-container {
+    position: absolute;
+    top: 13px; /* 距离顶部10px */
+    left: 10px; /* 距离左边10px */
+    z-index: 1000; /* 确保按钮位于其他内容之上 */
+}
+
+.back-button {
+    display: inline-block;
+    padding: 8px 12px;
+    left:20px;
+    /* background-color: #9cae50;  */
+    color: black; /* 文本颜色 */
+    text-decoration: none; /* 移除下划线 */
+    border-radius: 4px; /* 轻微的圆角 */
+    font-size: 13px; /* 字体大小 */
+    font-family: "Ubuntu Mono", monospace; /* 字体 */
+}
+
+#back-button-container:hover {
+    background-color: #9cae50;
+}
+
+@media (max-width: 750px) {
+    .sticker {
+        width: calc((100% / 4) - 12px); /* 一排显示四个贴纸 */
+        height: 90px; /* 可以根据需要调整贴纸的高度 */
+    }
+
+    .container,
+    .inner-container,
+    .sticker .sticker-info {
+        font-size: 0.7rem; /* 减小字体大小 */
+    }
+}

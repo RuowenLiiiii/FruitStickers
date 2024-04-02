@@ -1,0 +1,87 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* 使得 body 的高度充满整个视口 */
+    background-color: black;
+}
+
+.main-container {
+    padding: 5px;
+    width: 100vw; /* 视口宽度，确保容器宽度充满视口 */
+    height: 100vh; /* 视口高度，确保容器高度充满视口 */
+    margin: 0; /* 移除外边距 */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    overflow-y: auto; /* 允许垂直滚动 */
+    border-radius: 40px; /* 圆角效果 */
+    overflow: hidden;
+    background: #d7cfb8;
+}
+
+.fruit-container {
+    display: flex; /* 启用 flexbox */
+    justify-content: center; /* 水平居中 */
+    align-items: center;
+    position: absolute;
+    cursor: pointer;
+    margin: 20px;
+    /* border: 5px solid white;  */
+    border-radius: 10px; /* 轻微的圆角效果 */
+    
+}
+
+.fruit {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* 保持图片比例 */
+}
+
+
+.fruit-container:hover .fruit {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+body, div, span {
+    font-family: "Ubuntu Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 13px;
+    color: #000; /* 根据需要设置颜色 */
+}
+
+.center-message {
+    position: absolute;
+    left: 50%;
+    top: 13px; /* 距离顶部 13px */
+    transform: translateX(-50%); /* 水平居中调整 */
+    font-size: 20px; /* 或根据屏幕中心文本的特殊需要调整大小 */
+    text-align: center;
+}
+
+@media (max-width: 750px) {
+    .main-container {
+        padding: 5px;
+        border-radius: 20px; /* 在较小屏幕上减少圆角大小 */
+    }
+
+    .fruit-container {
+        margin: 10px; /* 减少边距，以便在屏幕上显示更多内容 */
+        /* 可能需要调整fruit-container的尺寸，但由于尺寸是在JS中动态设置的，你可能需要在JS中进行调整 */
+    }
+
+    body, div, span {
+        font-size: 12px; /* 减小字体大小 */
+    }
+
+    .center-message {
+        position: absolute;
+        left: 50%;
+        top: 13px; /* 距离顶部 13px */
+        transform: translateX(-50%); /* 水平居中调整 */
+        font-size: 15px; /* 或根据屏幕中心文本的特殊需要调整大小 */
+        text-align: center;
+    }
+}
